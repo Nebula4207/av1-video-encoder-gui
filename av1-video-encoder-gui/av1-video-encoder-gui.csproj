@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+	<ApplicationIcon>resources\img\neav1e.ico</ApplicationIcon>
+    <Version>2.1.7</Version>
+    <Authors>Alkl58</Authors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\img\folder.png" />
+    <None Remove="resources\img\neav1e.ico" />
+    <None Remove="resources\img\pause.png" />
+    <None Remove="resources\img\queue.png" />
+    <None Remove="resources\img\resume.png" />
+    <None Remove="resources\img\save.png" />
+    <None Remove="resources\img\settings.png" />
+    <None Remove="resources\img\start.png" />
+    <None Remove="resources\img\stop.png" />
+    <None Remove="resources\img\video.png" />
+    <None Remove="resources\img\videoplaceholder.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.60" />
+    <PackageReference Include="MahApps.Metro" Version="3.0.0-alpha0476" />
+    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Octokit" Version="11.0.1" />
+    <PackageReference Include="System.Management" Version="8.0.0" />
+    <PackageReference Include="WPFLocalizeExtension" Version="3.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\img\folder.png" />
+    <Resource Include="resources\img\neav1e.ico" />
+    <Resource Include="resources\img\pause.png" />
+    <Resource Include="resources\img\queue.png" />
+    <Resource Include="resources\img\resume.png" />
+    <Resource Include="resources\img\save.png" />
+    <Resource Include="resources\img\settings.png" />
+    <Resource Include="resources\img\start.png" />
+    <Resource Include="resources\img\stop.png" />
+    <Resource Include="resources\img\video.png" />
+    <Resource Include="resources\img\videoplaceholder.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="resources\lang\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="resources\lang\Strings.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="resources\lang\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="resources\lang\Strings.ru-RU.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="resources\lang\Strings.zh-CN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MediaInfo\MediaInfo.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+version: 1.3.{build}
+image: Visual Studio 2022
+configuration: Release
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "1.3.{build}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
+build:
+  verbosity: minimal
+before_build:
+  - nuget restore
+artifacts:
+- path: '\av1-video-encoder-gui\bin\Release\'
+  name: av1-video-encoder-gui
+skip_commits:
+  files:
+    - README.md

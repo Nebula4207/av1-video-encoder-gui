@@ -1,0 +1,158 @@
+﻿<mah:MetroWindow x:Class="av1-video-encoder-gui.Views.Updater"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        mc:Ignorable="d"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="av1-video-encoder-gui"
+        lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+        Title="{lex:Loc ButtonUpdater}" Height="420" Width="550" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid Margin="10,39,10,57">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateProgram" Grid.Column="0" Content="Update NEAV1E" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateProgram_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentProgramVersion" Grid.Column="2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateProgramVersion" Grid.Column="4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!-- FFmpeg -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateFFmpeg" Grid.Column="0" Content="Update FFmpeg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateFFmpeg_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentFFmpegVersion" Grid.Column="2" Content="{Binding FFmpegCurrentVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateFFmpegVersion" Grid.Column="4" Content="{Binding FFmpegUpdateVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!-- Aomenc -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateAomenc" Grid.Column="0" Content="Update aomenc" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateAomenc_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentAomencVersion" Grid.Column="2" Content="{Binding AomencCurrentVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateAomencVersion" Grid.Column="4" Content="{Binding AomencUpdateVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!-- Rav1e -->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateRav1e" Grid.Column="0" Content="Update rav1e" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateRav1e_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentRav1eVersion" Grid.Column="2" Content="{Binding Rav1eCurrentVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateRav1eVersion" Grid.Column="4" Content="{Binding Rav1eUpdateVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!-- Svt-av1 -->
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateSVTAV1" Grid.Column="0" Content="Update SVT-AV1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateSVTAV1_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentSVTAV1Version" Grid.Column="2" Content="{Binding SVTAV1CurrentVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateSVTAV1Version" Grid.Column="4" Content="{Binding SVTAV1UpdateVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!-- QSVEnc -->
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateQSVEnc" Grid.Column="0" Content="Update QSVEncC" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateQSVEnc_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentQSVEncCVersion" Grid.Column="2" Content="{Binding QSVEncCCurrentVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateQSVEncCVersion" Grid.Column="4" Content="{Binding QSVEncCUpdateVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!-- QSVEnc -->
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateNVEnc" Grid.Column="0" Content="Update NVEnc" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateNVEnc_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentNVEncVersion" Grid.Column="2" Content="{Binding NVEncCurrentVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateNVEncVersion" Grid.Column="4" Content="{Binding NVEncUpdateVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!-- MKVToolnix -->
+            <Grid Grid.Row="74">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonUpdateMKVToolNix" Grid.Column="0" Content="Update MKVToolNix" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Background="{x:Null}" Height="34" Click="ButtonUpdateMKVToolnix_Click" mah:ControlsHelper.ContentCharacterCasing="Normal" />
+                <Label Content="Current Version:" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="34" VerticalContentAlignment="Center" />
+                <Label Content="Update Version:" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelCurrentMKVToolnixVersion" Grid.Column="2" Content="{Binding MKVToolnixCurrentVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+                <Label x:Name="LabelUpdateMKVToolnixVersion" Grid.Column="4" Content="{Binding MKVToolnixUpdateVersion}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Height="34" VerticalContentAlignment="Center" />
+            </Grid>
+        </Grid>
+
+        <Label x:Name="LabelBuildsProvidedBy" Content="FFmpeg provided by gyan.dev under GPLv3 &#xD;&#xA;Other Builds provided by jeremylee.sh under GPLv3" HorizontalAlignment="Left" Margin="10,-5,0,0" VerticalAlignment="Top" Width="403" Height="39" VerticalContentAlignment="Center" FontStyle="Italic" />
+        <ProgressBar x:Name="ProgressBar" Margin="0,352,0,0" Height="30" VerticalAlignment="Top" />
+        <Label x:Name="LabelProgressBar" Content="" Margin="0,352,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Top"/>
+    </Grid>
+</mah:MetroWindow>

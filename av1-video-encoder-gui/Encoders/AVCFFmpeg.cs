@@ -1,0 +1,28 @@
+﻿using System.Windows;
+
+namespace av1-video-encoder-gui.Encoders
+{
+    class AVCFFmpeg : IEncoder
+    {
+        public string GetCommand()
+        {
+            // Get MainWindow instance to access UI elements
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+
+            string settings = "-c:v libx264";
+
+            // Quality / Bitrate Selection
+            string quality = mainWindow.VideoTabVideoQualityControl.ComboBoxQualityModeX26x.SelectedIndex switch
+            {
+                0 => " -crf " + mainWindow.VideoTabVideoQualityControl.SliderQualityX26x.Value,
+                1 => " -b:v " + mainWindow.VideoTabVideoQualityControl.TextBoxBitrateX26x.Text + "k",
+                _ => ""
+            };
+
+            // Preset
+            settings += quality + " -preset " + mainWindow.GenerateMPEGEncoderSpeed();
+
+            return settings;
+        }
+    }
+}

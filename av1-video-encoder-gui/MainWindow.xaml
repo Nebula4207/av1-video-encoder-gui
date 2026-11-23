@@ -1,0 +1,64 @@
+﻿<mah:MetroWindow x:Class="av1-video-encoder-gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        xmlns:neav1eControls="clr-namespace:av1-video-encoder-gui.Controls"
+        xmlns:neav1eControlsPartials="clr-namespace:av1-video-encoder-gui.Controls.Partials"
+        mc:Ignorable="d"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="av1-video-encoder-gui"
+        lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+        Title="NEAV1E" Height="650" Width="1085" Icon="/resources/img/neav1e.ico" AllowDrop="True" DragDrop.Drop="MetroWindow_Drop" MinWidth="780" MinHeight="550" Closing="MetroWindow_Closing">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="b2v" />
+    </Window.Resources>
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo/>
+    </Window.TaskbarItemInfo>
+    <Grid>
+        <Image x:Name="bgImage" Stretch="UniformToFill" />
+
+        <neav1eControls:MainWindowTopButtons x:Name="TopButtonsControl" />
+
+        <mah:MetroTabControl x:Name="TabControl" Margin="0,60,0,0" >
+            <TabItem x:Name="TabItemSummary" Header="{lex:Loc}">
+                <neav1eControls:SummaryTab x:Name="SummaryTabControl" />
+            </TabItem>
+            <TabItem x:Name="TabItemFilters" Header="{lex:Loc}">
+                <Grid>
+                    <neav1eControls:FiltersTab x:Name="FiltersTabControl"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItemChunking" Header="{lex:Loc}">
+                <Grid>
+                    <neav1eControls:ChunkingTab x:Name="ChunkingTabControl"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItemVideo" Header="{lex:Loc}">
+                <Grid>
+                    <neav1eControlsPartials:VideoTabVideo x:Name="VideoTabVideoPartialControl"/>
+                    <neav1eControlsPartials:VideoTabOptimization x:Name="VideoTabVideoOptimizationControl"/>
+                    <neav1eControlsPartials:VideoTabQuality x:Name="VideoTabVideoQualityControl" />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItemHDR" Header="HDR" Visibility="{Binding HDR, Converter={StaticResource b2v}}">
+                <neav1eControls:HDRTab x:Name="HDRTabControl" />
+            </TabItem>
+            <TabItem x:Name="TabItemAdvanced" Header="{lex:Loc}" Visibility="{Binding AdvancedSettings, Converter={StaticResource b2v}}">
+                <neav1eControls:AdvancedTab x:Name="AdvancedTabControl"/>
+            </TabItem>
+            <TabItem x:Name="TabItemAudio" Header="{lex:Loc}">
+                <neav1eControls:AudioTab x:Name="AudioTabControl"/>
+            </TabItem>
+            <TabItem x:Name="TabItemSubtitles" Header="{lex:Loc}">
+                <neav1eControls:SubtitlesTab x:Name="SubtitlesTabControl"/>
+            </TabItem>
+            <TabItem x:Name="TabItemQueue" Header="{lex:Loc}">
+                <neav1eControls:QueueTab  x:Name="QueueTabControl"/>
+            </TabItem>
+        </mah:MetroTabControl>
+    </Grid>
+</mah:MetroWindow>

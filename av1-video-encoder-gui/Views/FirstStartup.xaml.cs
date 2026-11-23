@@ -1,0 +1,29 @@
+﻿using System;
+using System.IO;
+using System.Windows;
+using MahApps.Metro.Controls;
+using Newtonsoft.Json;
+
+namespace av1-video-encoder-gui.Views
+{
+    public partial class FirstStartup : MetroWindow
+    {
+        readonly Settings _settingsDB;
+        public FirstStartup(Settings settingsDB)
+        {
+            InitializeComponent();
+            _settingsDB = settingsDB;
+        }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Directory.CreateDirectory(Path.Combine(Global.AppData, "NEAV1E"));
+                File.WriteAllText(Path.Combine(Global.AppData, "NEAV1E", "settings.json"), JsonConvert.SerializeObject(_settingsDB, Formatting.Indented));
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            Close();
+        }
+    }
+}
